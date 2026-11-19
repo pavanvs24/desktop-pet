@@ -1,4 +1,5 @@
 import sys
+import random
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QPainter, QColor
 from PySide6.QtWidgets import QApplication, QWidget
@@ -35,6 +36,11 @@ class PetWindow(QWidget):
 
     def toggle_eyes(self):
         self.eyes_open = not self.eyes_open
+
+        if self.eyes_open:
+            self.timer.start(random.randint(2000, 6000))
+        else:
+            self.timer.start(120)
         self.update()
 
 
